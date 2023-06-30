@@ -194,7 +194,7 @@ contract LayerZeroHelper is Test {
             ) {
                 bytes memory payload = abi.decode(log.data, (bytes));
                 LayerZeroPacket.Packet memory packet = LayerZeroPacket
-                    .getPacket(payload);
+                    .getPacketV3(payload, 20, bytes32(0));
                 if (packet.dstChainId == expChainId || expChainId == 0) {
                     _receivePayload(
                         endpoint,
