@@ -269,7 +269,7 @@ contract CelerHelper is Test {
     function _estimateGas(
         address fromMessageBus,
         bytes memory message
-    ) internal returns (uint256 gasEstimate) {
+    ) internal view returns (uint256 gasEstimate) {
         /// NOTE: In celer two fees are involved, but only the 1st one is
         /// estimated here
         /// 1: Sync, Sign and Store Cost [Source Fees]
