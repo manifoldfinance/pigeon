@@ -2,7 +2,7 @@
 pragma solidity >=0.8.0;
 
 library AddressHelper {
-    function fromString(string memory _address) public pure returns (address) {
+    function fromString(string memory _address) internal pure returns (address) {
         string memory cleanAddress = remove0xPrefix(_address);
         bytes20 _addressBytes = parseHexStringToBytes20(cleanAddress);
         return address(_addressBytes);
