@@ -136,7 +136,7 @@ contract LayerZeroHelper is Test {
                     .topics[0] == eventSelector
             ) {
                 bytes memory payload = abi.decode(log.data, (bytes));
-                LayerZeroPacket.Packet memory packet = LayerZeroPacket.getPacket(payload);
+                LayerZeroPacket.Packet memory packet = LayerZeroPacket.getPacketV3(payload, 20, bytes32(0));
                 if (packet.dstChainId == expChainId || expChainId == 0) {
                     _receivePayload(endpoint, packet, gasToSend, enableEstimates);
                 }
